@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.png" />
+
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,300,800,700' rel='stylesheet'
+        type='text/css'>
+    <link href="css/resume.css" rel="stylesheet" type='text/css'>
+    <link href="css/generator.css" rel="stylesheet" type='text/css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script src="js/port.js" defer></script>
+
+    <script src="html/head.js"></script>
+</head>
+
+<body class="theme-default">
+    <input type="file" id="config-file-input" style="display: none">
+    <button id="import-button" class="contact-button no-print config-button"
+        onclick="document.getElementById('config-file-input').click()">导入配置</button>
+
+    <div class="wrapper" itemscope itemtype="http://schema.org/Person">
+        <div id="headHTML"></div>
+        <script>document.getElementById('headHTML').innerHTML = headHTML;</script>
+
+        <div id="content-section-body">
+        </div>
+    </div>
+
+    <button id="export-button" class="contact-button no-print config-button">导出配置</button>
+</body>
+
+</html>
