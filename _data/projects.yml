@@ -1,20 +1,12 @@
-- 
-  project: "zedis"
+- project: "zedis"
   role: ""
-  description: "<p><a href="github.com/zweix/zedis"></a></p>
-<ul>
-<li>net</li>
-<li>data struct</li>
-<li>thread pool</li>
-</ul>"
+  description: "<p><a href=\"github.com/zweix/zedis\">github.com/zweix/zedis</a></p><ul><li>net</li><li>data struct</li><li>thread pool</li></ul>"
   duration: ""
-- 
-  project: "zlong"
+- project: "zlong"
   role: ""
   description: ""
   duration: ""
-- 
-  project: "TCP"
+- project: "TCP"
   role: ""
   description: ""
   duration: ""

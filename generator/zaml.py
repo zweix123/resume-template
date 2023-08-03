@@ -90,6 +90,7 @@ def read(file_name: str, tab="  ") -> dict:
 
 
 def write(filepath: str, data: dict, tab: str = "  ") -> None:
+    print(data)
     with open(filepath, "w") as f:
 
         def dfs(node: Any, pre: str = ""):
@@ -107,5 +108,35 @@ def write(filepath: str, data: dict, tab: str = "  ") -> None:
                     dfs(ele, pre + tab)
             else:
                 f.write(f"{node}\n")
+
+        dfs(data)
+
+
+def write2(filepath: str, data: Any, tab: str = "  ") -> None:
+    print(data)
+    with open(filepath, "w") as f:
+
+        def dfs(node: Any, allow_endl: bool = False, pre: str = ""):
+            if isinstance(node, dict):
+                if allow_endl:
+                    f.write("\n")
+                t = pre if allow_endl else ""
+                for k, v in node.items():
+                    f.write(f"{t}{k}: ")
+                    dfs(v, True, pre + tab)
+                    t = pre
+            elif isinstance(node, list):
+                if allow_endl:
+                    f.write("\n")
+                t = pre if allow_endl else ""
+                for ele in node:
+                    f.write(f"{t}- ")
+                    dfs(ele, False, pre + tab)
+                    t = pre
+            else:
+                if isinstance(node, str):
+                    node = f'"{node}"'
+                t = "" if allow_endl else pre
+                f.write(f"{t}{node}\n")
 
         dfs(data)

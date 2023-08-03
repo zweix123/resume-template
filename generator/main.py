@@ -104,7 +104,7 @@ if __name__ == "__main__":
         if section_name == "recognitions":
             section_name = "recognition"
         filepath = os.path.join(DATA_DIR_PATH, section_name + ".yml")
-        zaml.write(filepath, section_config)
+        zaml.write2(filepath, section_config)
 
     # back to header, update and write back
     res_config.update(usr_header)

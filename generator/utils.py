@@ -23,4 +23,5 @@ def md2html(md: str) -> str:
         "tables",
         "toc",
     ]
-    return markdown.markdown(md, extensions=extensions)
+    html = markdown.markdown(md, extensions=extensions)
+    return '\\"'.join(html.split('"')).replace("\n", "")
