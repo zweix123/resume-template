@@ -89,52 +89,29 @@ def read(file_name: str, tab="  ") -> dict:
         return resulter()
 
 
-def write(filepath: str, data: dict, tab: str = "  ") -> None:
-    with open(filepath, "w") as f:
-
-        def dfs(node: Any, pre: str = ""):
-            if isinstance(node, dict):
-                f.write("\n")
-                for k, v in node.items():
-                    f.write(f"{pre}{k}: ")
-                    dfs(v, pre + tab)
-                return
-            elif isinstance(node, str):
-                f.write(f'"{node}"\n')
-            elif isinstance(node, list):
-                for ele in node:
-                    f.write(f"{pre}- ")
-                    dfs(ele, pre + tab)
-            else:
-                f.write(f"{node}\n")
-
-        dfs(data)
-
-
-def write2(filepath: str, data: Any, tab: str = "  ") -> None:
+def write(filepath: str, data: Any, tab: str = "  ") -> None:
     with open(filepath, "w") as f:
 
         def dfs(node: Any, allow_endl: bool = False, pre: str = ""):
             if isinstance(node, dict):
                 if allow_endl:
                     f.write("\n")
-                t = pre if allow_endl else ""
+                tmp_pre = pre if allow_endl else ""
                 for k, v in node.items():
-                    f.write(f"{t}{k}: ")
+                    f.write(f"{tmp_pre}{k}: ")
                     dfs(v, True, pre + tab)
-                    t = pre
+                    tmp_pre = pre
             elif isinstance(node, list):
                 if allow_endl:
                     f.write("\n")
-                t = pre if allow_endl else ""
+                tmp_pre = pre if allow_endl else ""
                 for ele in node:
-                    f.write(f"{t}- ")
+                    f.write(f"{tmp_pre}- ")
                     dfs(ele, False, pre + tab)
-                    t = pre
+                    tmp_pre = pre
             else:
                 if isinstance(node, str):
                     node = f'"{node}"'
-                t = "" if allow_endl else pre
-                f.write(f"{t}{node}\n")
+                f.write(f"{node}\n")
 
         dfs(data)
