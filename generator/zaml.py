@@ -101,6 +101,10 @@ def write(filepath: str, data: dict, tab: str = "  ") -> None:
                 return
             elif isinstance(node, str):
                 f.write(f'"{node}"\n')
+            elif isinstance(node, list):
+                for ele in node:
+                    f.write(f"{pre}- ")
+                    dfs(ele, pre + tab)
             else:
                 f.write(f"{node}\n")
 

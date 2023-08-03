@@ -15,7 +15,12 @@ display_header_contact_info: "true"
 resume_header_intro: ""
 resume_looking_for_work: "yes"
 resume_social_links: 
-  resume_github_url: "github.com/zweix123"
+  resume_github_url: "https://github.com/zweix123"
   resume_linkedin_url: ""
 resume_print_social_links: True
 resume_theme: "default"
+resume_section_education: True
+resume_section_recognitions: True
+resume_section_experience: True
+resume_section_projects: True
+resume_section_skills: True

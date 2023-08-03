@@ -1,0 +1,26 @@
+- 
+  project: "zedis"
+  role: ""
+  duration0: ""
+  duration1: ""
+  description: "[](github.com/zweix/zedis)
++ net
++ data struct
++ thread pool
+
+
+
+
+"
+- 
+  project: "zlong"
+  role: ""
+  duration0: ""
+  duration1: ""
+  description: ""
+- 
+  project: "TCP"
+  role: ""
+  duration0: ""
+  duration1: ""
+  description: ""

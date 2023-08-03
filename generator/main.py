@@ -43,10 +43,10 @@ if __name__ == "__main__":
         exit(0)
     # print(usr_config_file_path)
     usr_config = read_json(usr_config_file_path)
-    # print(usr_config)
+    usr_header = usr_config["header"]
+    usr_body = usr_config["body"]
 
     # handle header config
-    usr_header = usr_config["header"]
     res_config = zaml.read(GLOBAL_CONFIG_TEMP_PATH)
     # print(usr_header)
     # print(res_config)
@@ -65,8 +65,25 @@ if __name__ == "__main__":
     )
     # change struct
     usr_header = parse_dict(usr_header)
-    # update
+    # wait:
+    # why stop handle header? beacause check section need body
+    
+    
+    # handle body
+    for section in usr_body:
+        section_name = section["section"]
+        section_data = section["data"]
+
+        section_config = list()
+        for entry_data in section_data:
+            section_config.append( parse_dict(entry_data)[section_name] )
+
+        filepath = os.path.join(DATA_DIR_PATH, section_name + ".yml")
+        zaml.write(filepath, section_config)
+        
+        usr_header["resume_section_" + section_name] = True
+
+    
+    # back to header, update and write back
     res_config.update(usr_header)
-    # write back
-    print(res_config)
     zaml.write(GLOBAL_CONFIG_PATH, res_config)
