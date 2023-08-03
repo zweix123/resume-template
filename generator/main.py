@@ -1,9 +1,9 @@
 import os, argparse
-from rich import print
+
 
 import zaml
 from config import GLOBAL_CONFIG_PATH, GLOBAL_CONFIG_TEMP_PATH, DATA_DIR_PATH
-from utils import read_json, write_json
+from utils import read_json
 
 
 def join_ele(strs: list[str], sep: str) -> str:
@@ -67,23 +67,40 @@ if __name__ == "__main__":
     usr_header = parse_dict(usr_header)
     # wait:
     # why stop handle header? beacause check section need body
-    
-    
+
     # handle body
     for section in usr_body:
         section_name = section["section"]
         section_data = section["data"]
 
-        section_config = list()
-        for entry_data in section_data:
-            section_config.append( parse_dict(entry_data)[section_name] )
-
-        filepath = os.path.join(DATA_DIR_PATH, section_name + ".yml")
-        zaml.write(filepath, section_config)
-        
+        # header about
         usr_header["resume_section_" + section_name] = True
 
-    
+        section_config = list()
+        for entry_data in section_data:
+            entry_data = parse_dict(entry_data)[section_name]
+
+            if section_name == "education" or section_name == "recongnition":
+                entry_data["year"] = join_ele(
+                    [entry_data["year0"], entry_data["year1"]], " — "
+                )
+                del entry_data["year0"], entry_data["year1"]
+            elif section_name == "experience" or section_name == "projects":
+                entry_data["duration"] = join_ele(
+                    [entry_data["duration0"], entry_data["duration1"]], " — "
+                )
+                del entry_data["duration0"], entry_data["duration1"]
+            else:
+                pass
+
+            section_config.append(entry_data)
+
+        # section write back
+        if section_name == "recognitions":
+            section_name = "recognition"
+        filepath = os.path.join(DATA_DIR_PATH, section_name + ".yml")
+        zaml.write(filepath, section_config)
+
     # back to header, update and write back
     res_config.update(usr_header)
     zaml.write(GLOBAL_CONFIG_PATH, res_config)

@@ -8,9 +8,9 @@ const educationEntryHTML = `
     <h4 class="resume-item-details group" itemprop="description">
         <input type="text" id="position" placeholder="学位: 专业 方向 学位层次" style="width: 235px;" data-key="education|degree"></input>
         &bull;
-        <input type="text" id="start-date" placeholder="起始时间" style="width: 201px;" data-key="education|year"></input>
+        <input type="text" id="start-date" placeholder="起始时间" style="width: 201px;" data-key="education|year0"></input>
         -
-        <input type="text" id="end-date" placeholder="终止时间" style="width: 201px;" data-key="education|year_"></input>
+        <input type="text" id="end-date" placeholder="终止时间" style="width: 201px;" data-key="education|year1"></input>
     </h4>
     
     <!--

@@ -1,8 +1,6 @@
 - 
   project: "zedis"
   role: ""
-  duration0: ""
-  duration1: ""
   description: "[](github.com/zweix/zedis)
 + net
 + data struct
@@ -12,15 +10,14 @@
 
 
 "
+  duration: ""
 - 
   project: "zlong"
   role: ""
-  duration0: ""
-  duration1: ""
   description: ""
+  duration: ""
 - 
   project: "TCP"
   role: ""
-  duration0: ""
-  duration1: ""
   description: ""
+  duration: ""

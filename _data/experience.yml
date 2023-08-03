@@ -1,14 +1,12 @@
 - 
   company: "netease"
   position: "curve"
-  duration0: "2023"
-  duration1: "2024"
   location: "hangzhou"
   summary: ""
+  duration: "2023 — 2024"
 - 
   company: ""
   position: ""
-  duration0: ""
-  duration1: ""
   location: ""
   summary: ""
+  duration: ""
