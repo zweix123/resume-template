@@ -3,7 +3,7 @@
  * @param {button} removeBtn Tag remove button
  */
 function removeFromBtn(removeBtn) {
-    let tempTag = removeBtn.parentElement.parentElement;
+    let tempTag = removeBtn.parentElement.parentElement.parentElement;
     tempTag.parentElement.removeChild(tempTag);
 }
 

@@ -5,6 +5,8 @@ from config import GLOBAL_CONFIG_PATH, GLOBAL_CONFIG_TEMP_PATH, DATA_DIR_PATH
 from utils import read_json, md2html
 import zaml
 
+from rich import print
+
 
 def join_ele(strs: list[str], sep: str) -> str:
     return sep.join([s for s in strs if len(s.strip()) != 0])

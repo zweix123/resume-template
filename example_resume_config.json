@@ -1,0 +1,114 @@
+{
+    "header": {
+        "resume_name": "Lisa M. Simpson",
+        "resume_contact_address": "",
+        "resume_contact_telephone": "",
+        "resume_contact_email": "",
+        "resume_social_links|resume_github_url": "https://github.com/jglovier/resume-template",
+        "resume_social_links|resume_linkedin_url": "https://www.linkedin.cn/incareer/in/joelglovier",
+        "resume_header_intro": "This is the executive summary. You should write a few brief, concise, and meaningful sentences about yourself from a professional context, and your immediate career goals. Make the length appropriate for your needs, but keep it brief and concise"
+    },
+    "body": [
+        {
+            "section": "experience",
+            "data": [
+                {
+                    "experience|company": "Springfield International Human Rights Outreach",
+                    "experience|position": "VP of Global Communications",
+                    "experience|duration0": "Oct, 2013",
+                    "experience|duration1": "Present",
+                    "experience|location": "",
+                    "experience|summary": "Write about your core competencies in one or two sentences describing your position. If you held the position for a long time, it could be a longer section, including a couple bullet points\n\n\n\n\n+ A project you are proud of\n\n+ Another awesome project\n\n+ or a team or department you worked with"
+                },
+                {
+                    "experience|company": "United Nations Human Rights Council",
+                    "experience|position": "Director of Digital Strategy",
+                    "experience|duration0": "Jun, 2010",
+                    "experience|duration1": "Sept, 2013",
+                    "experience|location": "",
+                    "experience|summary": "If your stint was shorter, feel free to be brief and just call out the most meaningful points of your role. Be concise, and be meaninful. The person reading just needs enough to want to talk to you more about your experience."
+                },
+                {
+                    "experience|company": "Springfield Women & Children's Center",
+                    "experience|position": "Communications Coordinator",
+                    "experience|duration0": "Jun, 2008",
+                    "experience|duration1": "May, 2010",
+                    "experience|location": "",
+                    "experience|summary": "Led communication efforts across digital and traditional media channels for marketing and public relations, internal communication strategies, and coordinated support programs for the recipients of the center's services."
+                }
+            ]
+        },
+        {
+            "section": "education",
+            "data": [
+                {
+                    "education|uni": "Yale University",
+                    "education|degree": "Bachelor of Arts, Human Rights",
+                    "education|year0": "2004",
+                    "education|year1": "2008",
+                    "education|summary": "+ Summa Cumme Laude graduate\n\nIf you had any meaningful roles at college, feel free to write about them here"
+                },
+                {
+                    "education|uni": "Springfield High School",
+                    "education|degree": "High School Diploma",
+                    "education|year0": "2004",
+                    "education|year1": "",
+                    "education|summary": "**Most likely to succeed**\n\n\nYou can choose to have either a single or multiple awards"
+                }
+            ]
+        },
+        {
+            "section": "projects",
+            "data": [
+                {
+                    "projects|project": "jazznotes.io",
+                    "projects|role": "Founder & Primary Developer",
+                    "projects|duration0": "2012",
+                    "projects|duration1": "Present",
+                    "projects|description": "Jazz Notes is an open source node/ember app that helps you keep track of your music compositions and new ideas."
+                },
+                {
+                    "projects|project": "Springfield Community Outreach Group",
+                    "projects|role": "Co-Founder & Organizer",
+                    "projects|duration0": "2007",
+                    "projects|duration1": "Present",
+                    "projects|description": "SCOG is a local monthly meetup in Springfield where we share opportunities to volunteer in the community and organize support for families and neighborhoods in need of assistance that the community can provide."
+                }
+            ]
+        },
+        {
+            "section": "skills",
+            "data": [
+                {
+                    "skills|skill": "Organizational leadership",
+                    "skills|description": "I have several years of experience leading organziations from community groups to business departments. From public speaking, to mentoring, to coordination of people and events, I can lead in any context."
+                },
+                {
+                    "skills|skill": "Communications strategy",
+                    "skills|description": "Content and marketing strategy,"
+                },
+                {
+                    "skills|skill": "Digital content development and creation",
+                    "skills|description": "Copy writing, graphic design, web design, front-end web development, print design."
+                }
+            ]
+        },
+        {
+            "section": "recognitions",
+            "data": [
+                {
+                    "recognitions|award": "Outstanding Achievement",
+                    "recognitions|organization": "Springfield Young Professionals",
+                    "recognitions|year": "2010, 2014",
+                    "recognitions|summary": "Awarded the Outstanding Achievement award for contributions made to the community and professional accomplishments."
+                },
+                {
+                    "recognitions|award": "Most Likely To Succeed",
+                    "recognitions|organization": "Springfield High School",
+                    "recognitions|year": "2004",
+                    "recognitions|summary": "Voted Most Likely To Succeed by a panel of my high school peers."
+                }
+            ]
+        }
+    ]
+}

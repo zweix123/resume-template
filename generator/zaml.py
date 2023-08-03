@@ -90,7 +90,6 @@ def read(file_name: str, tab="  ") -> dict:
 
 
 def write(filepath: str, data: dict, tab: str = "  ") -> None:
-    print(data)
     with open(filepath, "w") as f:
 
         def dfs(node: Any, pre: str = ""):
@@ -113,7 +112,6 @@ def write(filepath: str, data: dict, tab: str = "  ") -> None:
 
 
 def write2(filepath: str, data: Any, tab: str = "  ") -> None:
-    print(data)
     with open(filepath, "w") as f:
 
         def dfs(node: Any, allow_endl: bool = False, pre: str = ""):
