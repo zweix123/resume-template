@@ -1,9 +1,9 @@
 import os, argparse
 
 
-import zaml
 from config import GLOBAL_CONFIG_PATH, GLOBAL_CONFIG_TEMP_PATH, DATA_DIR_PATH
-from utils import read_json
+from utils import read_json, md2html
+import zaml
 
 
 def join_ele(strs: list[str], sep: str) -> str:
@@ -92,6 +92,11 @@ if __name__ == "__main__":
                 del entry_data["duration0"], entry_data["duration1"]
             else:
                 pass
+
+            if "summary" in entry_data:
+                entry_data["summary"] = md2html(entry_data["summary"])
+            elif "description" in entry_data:
+                entry_data["description"] = md2html(entry_data["description"])
 
             section_config.append(entry_data)
 
