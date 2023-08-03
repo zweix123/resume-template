@@ -1,8 +1,14 @@
 import os, argparse
 
 
-from config import GLOBAL_CONFIG_PATH, GLOBAL_CONFIG_TEMP_PATH, DATA_DIR_PATH
-from utils import read_json, md2html
+from config import (
+    GLOBAL_CONFIG_PATH,
+    GLOBAL_CONFIG_TEMP_PATH,
+    DATA_DIR_PATH,
+    RESUME_PATH,
+)
+from template import PREFIX, SECTION_MAP, SUFFIX
+from utils import read_json, md2html, write_text
 import zaml
 
 from rich import print
@@ -70,6 +76,8 @@ if __name__ == "__main__":
     # wait:
     # why stop handle header? beacause check section need body
 
+    section_names = list()
+
     # handle body
     for section in usr_body:
         section_name = section["section"]
@@ -108,6 +116,15 @@ if __name__ == "__main__":
         filepath = os.path.join(DATA_DIR_PATH, section_name + ".yml")
         zaml.write(filepath, section_config)
 
+        section_names.append(section_name)
+
     # back to header, update and write back
     res_config.update(usr_header)
     zaml.write(GLOBAL_CONFIG_PATH, res_config)
+
+    index_content = ""
+    for section_name in section_names:
+        index_content += SECTION_MAP[section_name]
+
+    index_content = PREFIX + index_content + SUFFIX
+    write_text(RESUME_PATH, index_content)

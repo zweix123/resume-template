@@ -1,4 +1,4 @@
-
+PREFIX = """
 <!DOCTYPE html>
 <html>
 
@@ -48,7 +48,9 @@
         {% endif %}
 
       </header>
-
+"""
+SECTION_MAP = {
+    "experience": """
       {% if site.resume_section_experience %}
       <!-- begin Experience -->
       <section class="content-section">
@@ -68,7 +70,8 @@
       </section>
       <!-- end Experience -->
       {% endif %}
-
+""",
+    "education": """
       {% if site.resume_section_education %}
       <!-- begin Education -->
       <section class="content-section">
@@ -95,7 +98,8 @@
       </section>
       <!-- end Education -->
       {% endif %}
-
+""",
+    "projects": """
       {% if site.resume_section_projects %}
       <!-- begin Projects -->
       <section class="content-section">
@@ -115,7 +119,8 @@
       </section>
       <!-- end Projects -->
       {% endif %}
-
+""",
+    "skills": """
       {% if site.resume_section_skills %}
       <!-- begin Skills -->
       <section class="content-section">
@@ -133,7 +138,8 @@
       </section>
       <!-- end Skills -->
       {% endif %}
-
+""",
+    "recognition": """
       {% if site.resume_section_recognition %}
       <!-- begin Recognition -->
       <section class="content-section">
@@ -153,7 +159,72 @@
       </section>
       <!-- end Recognition -->
       {% endif %}
+""",
+    "associations": """
+      {% if site.resume_section_associations %}
+      <!-- begin Associations -->
+      <section class="content-section">
 
+        <header class="section-header">
+          <h2>Associations</h2>
+        </header>
+
+        {% for association in site.data.associations %}
+        <div class="resume-item" itemscope itemprop="memberOf" itemtype="http://schema.org/Organization">
+          <h3 class="resume-item-title" itemprop="name">{% if association.url %}<a href="{{ association.url }}">{{ association.organization }}</a>{% else %}{{ association.organization }}{% endif %}</h3>
+          <h4 class="resume-item-details" itemprop="description">{{ association.role }} &bull; {{ association.year }}</h4>
+          <p class="resume-item-copy">{{ association.summary }}</p>
+        </div>
+        {% endfor %}
+
+      </section>
+      <!-- end Associations -->
+      {% endif %}
+""",
+    "interests": """
+      {% if site.resume_section_interests %}
+      <!-- begin Interests -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Outside Interests</h2>
+        </header>
+
+        <div class="resume-item">
+          <ul class="resume-item-list">
+            {% for interest in site.data.interests %}
+            <li>{{ interest.description }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </section>
+      <!-- end Interests -->
+      {% endif %}
+""",
+    "links": """
+      {% if site.resume_section_links %}
+      <!-- begin Links -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Additional Links</h2>
+        </header>
+
+        <div class="resume-item">
+          <ul class="resume-item-list">
+            {% for link in site.data.links %}
+            <li><a href={{ link.url }} itemprop="url">{{ link.description }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </section>
+      <!-- end Links -->
+      {% endif %}
+""",
+}
+SUFFIX = """
       {% if site.resume_print_social_links %}
       <!-- begin Print Social Links -->
       <section class="content-section print-only">
@@ -180,3 +251,4 @@
   </body>
 
 </html>
+"""
