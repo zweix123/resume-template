@@ -92,9 +92,9 @@ document.getElementById('config-file-input').addEventListener('change', function
         const data = JSON.parse(fileContent);
 
         // handle header
-        const headTag = document.getElementById("headHTML");
-        const elements = headTag.querySelectorAll('[data-key]');
-        elements.forEach(element => putTextToEle(element, data["head"][element.getAttribute('data-key')]));
+        const headerTag = document.getElementById("headerHTML");
+        const elements = headerTag.querySelectorAll('[data-key]');
+        elements.forEach(element => putTextToEle(element, data["header"][element.getAttribute('data-key')]));
 
         // handle body
         const bodyTag = document.getElementById("content-section-body");
@@ -132,15 +132,15 @@ document.getElementById('config-file-input').addEventListener('change', function
 
 // handle config file export
 document.getElementById("export-button").addEventListener("click", function (event) {
-    let data = { "head": {}, "body": [] };
+    let data = { "header": {}, "body": [] };
 
     // handle header
-    const headTag = document.getElementById("headHTML");
-    const elements = headTag.querySelectorAll('[data-key]');
+    const headerTag = document.getElementById("headerHTML");
+    const elements = headerTag.querySelectorAll('[data-key]');
     elements.forEach(element => {
         const key = element.dataset.key;
         const value = takeTextFromEle(element)
-        data["head"][key] = value;
+        data["header"][key] = value;
     });
 
     // handle body

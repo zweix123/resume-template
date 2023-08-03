@@ -1,4 +1,4 @@
-const headHTML = `
+const headerHTML = `
 <header class="page-header">
     <img src="../images/avatar.jpg" alt="photo" class="avatar no-print" itemprop="image">
 
