@@ -112,6 +112,8 @@ def write(filepath: str, data: Any, tab: str = "  ") -> None:
             else:
                 if isinstance(node, str):
                     node = f'"{node}"'
+                elif isinstance(node, bool):
+                    node = "true" if node else "false"
                 f.write(f"{node}\n")
 
         dfs(data)

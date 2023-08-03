@@ -83,9 +83,6 @@ if __name__ == "__main__":
         section_name = section["section"]
         section_data = section["data"]
 
-        # header about
-        usr_header["resume_section_" + section_name] = True
-
         section_config = list()
         for entry_data in section_data:
             entry_data = parse_dict(entry_data)[section_name]
@@ -111,9 +108,12 @@ if __name__ == "__main__":
             section_config.append(entry_data)
 
         # section write back
+        filepath = os.path.join(DATA_DIR_PATH, section_name + ".yml")
+
         if section_name == "recognitions":
             section_name = "recognition"
-        filepath = os.path.join(DATA_DIR_PATH, section_name + ".yml")
+
+        usr_header["resume_section_" + section_name] = True
         zaml.write(filepath, section_config)
 
         section_names.append(section_name)
@@ -124,6 +124,7 @@ if __name__ == "__main__":
 
     index_content = ""
     for section_name in section_names:
+        assert isinstance(SECTION_MAP[section_name], str)
         index_content += SECTION_MAP[section_name]
 
     index_content = PREFIX + index_content + SUFFIX
