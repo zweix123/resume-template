@@ -1,8 +1,9 @@
 import os, argparse
 from rich import print
 
+import zaml
 from config import GLOBAL_CONFIG_PATH, GLOBAL_CONFIG_TEMP_PATH, DATA_DIR_PATH
-from utils import read_json, read_yaml, write_json, write_yaml
+from utils import read_json, write_json
 
 
 def join_ele(strs: list[str], sep: str) -> str:
@@ -46,11 +47,12 @@ if __name__ == "__main__":
 
     # handle header config
     usr_header = usr_config["header"]
-    res_config = read_yaml(GLOBAL_CONFIG_TEMP_PATH)
+    res_config = zaml.read(GLOBAL_CONFIG_TEMP_PATH)
     # print(usr_header)
     # print(res_config)
 
     # handle header config
+    # extra info
     usr_header["title"] = usr_header["resume_name"] + " Resume"
     usr_header["description"] = "A resume for " + usr_header["resume_name"] + " and GitHub Pages sites."  # fmt: skip
     usr_header["resume_header_contact_info"] = join_ele(
@@ -61,11 +63,10 @@ if __name__ == "__main__":
         ],
         " • ",
     )
+    # change struct
     usr_header = parse_dict(usr_header)
-    print(usr_header)
     # update
-    print(res_config)
     res_config.update(usr_header)
-    print(res_config)
     # write back
-    write_yaml(GLOBAL_CONFIG_PATH, usr_header)
+    print(res_config)
+    zaml.write(GLOBAL_CONFIG_PATH, res_config)
