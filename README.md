@@ -49,6 +49,8 @@ Roadmap是通过前端网页让用户填写内容生成配置文件，然后后�
 
 稍等几分钟即可在这个页面查看到最终的在线简历：`https://你的用户名.github.io/resume-template/`，其中的`resume-template`和你Fork是设置的项目名对应），比如我的简历模板的路径是`https://zweix123.github.io/resume-template/`
 
+简历模板有页脚，对应代码在`./generator/template.py`的267-268行，不需要删除即可。
+
 ## Develop
 
 我们最初的目的实现了，但是新的问题出现了。
