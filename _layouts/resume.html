@@ -54,13 +54,17 @@
       <section class="content-section">
 
         <header class="section-header">
-          <h2>Experience</h2>
+          <h2>工作经历</h2>
         </header>
 
         {% for job in site.data.experience %}
         <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
           <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
-          <h4 class="resume-item-details" itemprop="description">{{ job.position }} &bull; {{ job.duration }}</h4>
+          {% if job.position and job.duration %}
+            <h4 class="resume-item-details" itemprop="description">{{ job.position }} &bull; {{ job.duration }}</h4>
+          {% else %}
+              <h4 class="resume-item-details" itemprop="description">{{ job.position }}{{ job.duration }}</h4>
+          {% endif %}
           <p class="resume-item-copy">{{ job.summary }}</p>
         </div><!-- end of resume-item -->
         {% endfor %}
@@ -73,13 +77,18 @@
       <!-- begin Education -->
       <section class="content-section">
         <header class="section-header">
-          <h2>Education</h2>
+          <h2>教育</h2>
         </header>
 
         {% for education in site.data.education %}
         <div class="resume-item" itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
           <h3 class="resume-item-title" itemprop="name">{{ education.uni }}</h3>
-          <h4 class="resume-item-details group" itemprop="description">{{ education.degree }} &bull; {{ education.year }}</h4>
+          {% if education.degree and education.year %}
+            <h4 class="resume-item-details group" itemprop="description">{{ education.degree }} &bull; {{ education.year }}</h4>
+          {% else %}
+            <h4 class="resume-item-details group" itemprop="description">{{ education.degree }}{{ education.year }}</h4>
+          {% endif %}
+          
           <h5 class="resume-item-details award-title" itemprop="description">{{ education.award }}</h5>
           <p class="resume-item-copy" itemprop="description">
             <ul class="resume-item-list">
@@ -100,14 +109,19 @@
       <!-- begin Projects -->
       <section class="content-section">
         <header class="section-header">
-          <h2>Projects</h2>
+          <h2>项目 / 研究经历</h2>
         </header>
 
         {% for project in site.data.projects %}
         <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
           <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
           <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
+          {% if project.role and project.duration %}
           <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
+          {% else %}
+          <h4 class="resume-item-details" itemprop="description">{{ project.role }}{{ project.duration }}</h4>
+          {% endif %}
+          
           <p class="resume-item-copy">{{ project.description }}</p>
         </div>
         {% endfor %}
@@ -121,7 +135,7 @@
       <section class="content-section">
 
         <header class="section-header">
-          <h2>Skills</h2>
+          <h2>技能</h2>
         </header>
         {% for skill in site.data.skills %}
         <div class="resume-item">
@@ -139,13 +153,17 @@
       <section class="content-section">
 
         <header class="section-header">
-          <h2>Recognition</h2>
+          <h2>荣誉 / 奖项</h2>
         </header>
 
         {% for recognition in site.data.recognitions %}
         <div class="resume-item">
           <h3 class="resume-item-title" itemprop="award">{{ recognition.award }}</h3>
-          <h4 class="resume-item-details">{{ recognition.organization }} &bull; {{ recognition.year }}</h4>
+          {% if recognition.organization and recognition.year %}
+            <h4 class="resume-item-details">{{ recognition.organization }} &bull; {{ recognition.year }}</h4>
+          {% else %}
+            <h4 class="resume-item-details">{{ recognition.organization }}{{ recognition.year }}</h4>
+          {% endif %}
           <p class="resume-item-copy">{{ recognition.summary }}</p>
         </div>
         {% endfor %}

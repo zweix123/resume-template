@@ -11,8 +11,6 @@ from template import PREFIX, SECTION_MAP, SUFFIX
 from utils import read_json, md2html, write_text
 import zaml
 
-from rich import print
-
 
 def join_ele(strs: list[str], sep: str) -> str:
     return sep.join([s for s in strs if len(s.strip()) != 0])
@@ -56,8 +54,6 @@ if __name__ == "__main__":
 
     # handle header config
     res_config = zaml.read(GLOBAL_CONFIG_TEMP_PATH)
-    # print(usr_header)
-    # print(res_config)
 
     # handle header config
     # extra info
